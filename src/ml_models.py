@@ -46,11 +46,29 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Matplotlib 그래프에서 한글이 깨지지 않도록 폰트 설정
 import platform
-if platform.system() == "Darwin":  # macOS
-    plt.rcParams["font.family"] = "AppleGothic"
-else:  # Windows/Linux
-    plt.rcParams["font.family"] = ["NanumGothic", "Malgun Gothic", "sans-serif"]
-plt.rcParams["axes.unicode_minus"] = False  # 마이너스 부호 깨짐 방지
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
+
+def setup_korean_font():
+    """운영체제별로 한글 폰트를 자동 설정"""
+    system = platform.system()
+
+    if system == "Darwin":  # macOS
+        plt.rcParams["font.family"] = "AppleGothic"
+    elif system == "Windows":  # Windows
+        # Windows에서 사용 가능한 폰트 시도
+        try:
+            plt.rcParams["font.family"] = "Malgun Gothic"
+        except:
+            plt.rcParams["font.family"] = "sans-serif"
+    else:  # Linux
+        # Linux에서는 NanumGothic이 설치되어 있지 않을 수 있으므로 DejaVu Sans 사용
+        plt.rcParams["font.family"] = "sans-serif"
+
+    plt.rcParams["axes.unicode_minus"] = False  # 마이너스 부호 깨짐 방지
+
+# 폰트 설정 적용
+setup_korean_font()
 
 
 def load_ml_dataset(engine: Engine) -> pd.DataFrame:

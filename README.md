@@ -45,6 +45,56 @@ employment/
 └── output/ml_results/         # AI/ML 결과 (PNG)
 ```
 
+## 설치 방법
+
+### 1. Python 버전 확인
+
+이 프로젝트는 Python 3.8 이상이 필요합니다.
+
+```bash
+python --version
+```
+
+### 2. 필요한 라이브러리 설치
+
+#### 권장 방법: requirements.txt를 이용한 일괄 설치 (Windows/macOS/Linux 모두 지원)
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 수동 설치 (필요 시)
+
+```bash
+pip install pandas>=2.0.0 numpy>=1.24.0 matplotlib>=3.7.0 seaborn>=0.12.0
+pip install scikit-learn>=1.3.0 sqlalchemy>=2.0.0 statsmodels>=0.14.0 openpyxl>=3.1.0
+```
+
+### 3. 설치 확인
+
+```bash
+python -c "import pandas, numpy, sklearn, sqlalchemy, statsmodels; print('✅ 모든 라이브러리가 정상적으로 설치되었습니다!')"
+```
+
+### 4. 운영체제별 추가 설정
+
+#### Windows
+- **한글 폰트**: 'Malgun Gothic' (기본 설치됨)
+- **추가 작업 불필요**: 자동으로 설정됨
+
+#### macOS
+- **한글 폰트**: 'AppleGothic' (기본 설치됨)
+- **추가 작업 불필요**: 자동으로 설정됨
+
+#### Linux (Ubuntu/Debian)
+- **한글 폰트 설치** (선택 사항, 그래프 한글 표시용):
+  ```bash
+  sudo apt-get install fonts-nanum
+  ```
+- **폰트 없이도 실행 가능**: 영문 폰트로 자동 대체됨
+
+---
+
 ## 사용 방법
 
 ### 전체 파이프라인 실행 (권장)
