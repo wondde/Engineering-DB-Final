@@ -45,10 +45,6 @@ employment/
 └── output/ml_results/         # AI/ML 결과 (PNG)
 ```
 
-**자세한 설명**:
-- [SQL파일_설명.md](SQL파일_설명.md) - SQL 쿼리 상세 설명
-- [테이블_구조_정의.md](테이블_구조_정의.md) - DB 스키마 및 ERD
-
 ## 사용 방법
 
 ### 전체 파이프라인 실행 (권장)
